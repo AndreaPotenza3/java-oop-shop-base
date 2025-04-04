@@ -15,7 +15,6 @@ public class Main {
         // iphone.prezzo= 599.99;
         // iphone.iva=22;
         System.out.println(iphone.codice);
-
         iphone.ivaPrice();
         System.out.println(iphone.prezzo);
         iphone.fullName();
