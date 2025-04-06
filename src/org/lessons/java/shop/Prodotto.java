@@ -1,30 +1,42 @@
 package org.lessons.java.shop;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.Random;
+
 public class Prodotto {
 
+    public int codice;
     public String nome;
     public String descrizione;
-    public Double prezzo;
-    public int iva;
-    public int codice;
+    public BigDecimal prezzo;
+    public BigDecimal iva;
     
-    public Prodotto(String nome, String descrizione, Double prezzo, int iva){
+    public Prodotto(String nome, String descrizione, BigDecimal prezzo, BigDecimal iva){
+        Random rand = new Random();
+        this.codice = rand.nextInt(99999);
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
         this.iva = iva;
-        this.codice = (int)(Math.random()*101);
     }
-    // public void createCode(){
-    //     this.codice = (int)(Math.random()*101);
-    // }
-
-    public void ivaPrice(){
-        this.prezzo = prezzo + ((prezzo * iva)/100);
+    public BigDecimal getPrezzoBase(){
+        return this.prezzo;
     }
 
-    public void fullName(){
-        this.nome = codice + "-" + nome;
+    public BigDecimal getPrezzoIvato(){
+        if(prezzo != null && iva != null) {
+            return prezzo.add(prezzo.multiply(iva).setScale(2, RoundingMode.DOWN));
+        }
+        return null;
+    }
+
+    public String getNomeEsteso(){
+        if(nome != null) {
+
+            return codice + "-" + nome;
+        }
+        return null;
     }
 }
 
