@@ -6,22 +6,21 @@ public class Main {
 
     public static void main(String[] args) {
 
-        
-        
-        Prodotto iphone = new Prodotto("iphone 6", "Smartphone di ultima generazione", new BigDecimal(100), new BigDecimal(0.22));
+        Prodotto iphone = new Prodotto("iphone 6", "Smartphone di ultima generazione", new BigDecimal(599),
+                new BigDecimal(0.22));
 
-    
-        // iphone.codice = (int)(Math.random()*101);
-        // iphone.nome= "iphone 6";
-        // iphone.descrizione="Smartphone di ultima generazione";
-        // iphone.prezzo= 599.99;
-        // iphone.iva=22;
-        
+        iphone.setNome("carlo");
+
         System.out.println(iphone.getPrezzoBase());
         System.out.println(iphone.getPrezzoIvato());
         System.out.println(iphone.getNomeEsteso());
+        System.out.println(iphone.getNome());
+
+        Prodotto iphone2 = new Prodotto();
+
+        System.out.println(iphone2.getNome());
         
 
     }
-    
+
 }
